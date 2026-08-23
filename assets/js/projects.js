@@ -21,9 +21,9 @@ const PROJECTS = [
   {
     id: 'project-01',
     title: '알바몬 계약 경험 개선 프로젝트',
-    summary: '한 줄로 성과나 핵심을 적으면 좋습니다. 예) 결제 이탈률 32% 개선',
+    summary: '채용과 단절돼 있던 근로계약 과정을 채팅 안으로 연결한 경험 재설계',
     category: 'ai',
-    tags: ['AI Product', 'UX/UI', '2026'],
+    tags: ['Mobile App', 'UX·UI', 'AI', '2026'],
     year: '2026',
     thumb: '',
     url: 'work/project-01.html',
