@@ -31,7 +31,7 @@
         <p class="card-summary">${p.summary || ''}</p>
         <ul class="card-tags">${tags}</ul>
       </div>`;
-    const cls = 'card' + (p.featured ? ' is-featured' : '');
+    const cls = 'card';
     return p.url
       ? `<a class="${cls}" href="${p.url}">${inner}</a>`
       : `<div class="${cls}" aria-disabled="true">${inner}</div>`;

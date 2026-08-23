@@ -15,10 +15,9 @@ assets/img/             이미지
 ```
 
 ## 작업물 추가하는 법
-1. 썸네일을 `assets/img/`에 넣는다 (4:3, 1600×1200 권장 / featured는 16:9).
+1. 썸네일을 `assets/img/`에 넣는다 (4:3, 1600×1200 권장).
 2. `work/_template.html`을 복사해 `work/새이름.html`로 저장하고 내용을 채운다.
 3. `assets/js/projects.js`의 `PROJECTS` 배열에 항목을 추가한다.
-   - `featured: true` → 그리드에서 2칸 크게 노출 (대표작 1~2개만).
    - `url: ''` → "준비중" 배지가 붙고 클릭 불가.
 
 ## 커스터마이즈

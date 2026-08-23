@@ -66,7 +66,7 @@ a { color: inherit; text-decoration: none; }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--fg); }
 
 /* ---------- Hero (짧게 — 작업물이 바로 보이도록) ---------- */
-/* 폭을 아래 작업물 그리드의 컬럼에 맞춤 (3컬럼 중 2컬럼 + 거터 1개) */
+/* 폭을 아래 작업물 그리드의 한 컬럼에 맞춤 */
 .hero { padding: 40px 0 28px; }
 .hero h1 {
   margin: 0;
@@ -75,11 +75,11 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.4;
   letter-spacing: -.02em;
   word-break: keep-all;          /* 한글이 단어 중간에서 끊기지 않도록 */
-  max-width: calc((100% - var(--gut) * 2) / 3 * 2 + var(--gut));
+  max-width: calc((100% - 32px) / 2);
 }
 .hero p { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
 
-@media (max-width: 1024px) {     /* 그리드가 2컬럼이 되는 지점 */
+@media (max-width: 600px) {      /* 그리드가 1컬럼이 되는 지점 */
   .hero h1 { max-width: 100%; }
 }
 
@@ -101,18 +101,16 @@ a { color: inherit; text-decoration: none; }
 .filter[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: var(--bg); }
 
 /* ---------- Work grid ---------- */
+/* 모든 프로젝트를 동일한 위계로, 한 줄에 2개씩 */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 44px 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 56px 32px;
   padding-bottom: 80px;
 }
-@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px)  { .grid { grid-template-columns: 1fr; gap: 36px; } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; gap: 40px; } }
 
 .card { display: block; }
-.card.is-featured { grid-column: span 2; }
-@media (max-width: 600px) { .card.is-featured { grid-column: span 1; } }
 
 .card-thumb {
   position: relative; overflow: hidden;
@@ -120,7 +118,6 @@ a { color: inherit; text-decoration: none; }
   border-radius: var(--radius);
   aspect-ratio: 4 / 3;
 }
-.card.is-featured .card-thumb { aspect-ratio: 16 / 9; }
 .card-thumb img {
   width: 100%; height: 100%; object-fit: cover;
   transition: transform .5s var(--ease);

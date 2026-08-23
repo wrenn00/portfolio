@@ -4,7 +4,6 @@
 
    category : 'digital' | 'brand' | 'experimental' | 'graduation'
               (카테고리 이름은 CATEGORIES에서 바꿀 수 있음)
-   featured : true 면 그리드에서 2칸 크기로 크게 노출
    thumb    : assets/img/ 안의 이미지 경로 (없으면 placeholder 표시)
    url      : work/xxx.html  (아직 없으면 빈 문자열 '' → '준비중'으로 표시)
 ------------------------------------------------------------------- */
@@ -27,7 +26,6 @@ const PROJECTS = [
     year: '2026',
     thumb: '',
     url: 'work/project-01.html',
-    featured: true,
   },
   {
     id: 'project-02',
@@ -38,7 +36,6 @@ const PROJECTS = [
     year: '2025',
     thumb: '',
     url: '',
-    featured: false,
   },
   {
     id: 'project-03',
@@ -49,7 +46,6 @@ const PROJECTS = [
     year: '2025',
     thumb: '',
     url: '',
-    featured: false,
   },
   {
     id: 'project-04',
@@ -60,6 +56,5 @@ const PROJECTS = [
     year: '2025',
     thumb: '',
     url: '',
-    featured: false,
   },
 ];
