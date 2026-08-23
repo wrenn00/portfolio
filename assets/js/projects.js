@@ -2,7 +2,7 @@
    작업물 데이터 — 여기만 수정하면 메인 그리드가 자동으로 갱신됩니다.
    새 작업 추가 = 아래 배열에 객체 하나 추가.
 
-   category : 'digital' | 'brand' | 'experimental' | 'graduation'
+   category : 'ai' | 'digital' | 'brand' | 'experimental' | 'graduation'
               (카테고리 이름은 CATEGORIES에서 바꿀 수 있음)
    thumb    : assets/img/ 안의 이미지 경로 (없으면 placeholder 표시)
    url      : work/xxx.html  (아직 없으면 빈 문자열 '' → '준비중'으로 표시)
@@ -10,6 +10,7 @@
 
 const CATEGORIES = [
   { id: 'all',          label: 'All' },
+  { id: 'ai',           label: 'AI Product' },
   { id: 'digital',      label: 'Digital Product' },
   { id: 'brand',        label: 'Brand Experience' },
   { id: 'experimental', label: 'Experimental' },
@@ -21,8 +22,8 @@ const PROJECTS = [
     id: 'project-01',
     title: '프로젝트 제목을 입력하세요',
     summary: '한 줄로 성과나 핵심을 적으면 좋습니다. 예) 결제 이탈률 32% 개선',
-    category: 'digital',
-    tags: ['UX/UI', 'Mobile App', '2026'],
+    category: 'ai',
+    tags: ['AI Product', 'UX/UI', '2026'],
     year: '2026',
     thumb: '',
     url: 'work/project-01.html',
