@@ -14,8 +14,8 @@
   --font-sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
                "Apple SD Gothic Neo", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
 
-  --max:       1440px;
-  --gut:       24px;
+  --max:       1200px;
+  --gut:       clamp(24px, 5vw, 64px);
   --radius:    4px;
   --ease:      cubic-bezier(.22,.61,.36,1);
 }
