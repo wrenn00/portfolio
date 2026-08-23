@@ -4,14 +4,12 @@
   "trailingSlash": false,
   "headers": [
     {
-      "comment": "이미지는 교체 시 파일명을 바꾸므로 장기 캐시 안전",
       "source": "/assets/img/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "comment": "CSS/JS는 파일명이 고정이라 매번 서버에 변경 여부를 확인해야 함",
       "source": "/assets/(css|js)/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
