@@ -117,7 +117,7 @@ a { color: inherit; text-decoration: none; }
 /* ---------- Page title ---------- */
 .page-title {
   margin: 0;
-  padding-top: 82px;     /* 고정 칩(96~131) 아래로 */
+  padding-top: 56px;
   font-size: clamp(24px, 2.6vw, 34px);
   font-weight: 600;
   letter-spacing: -.02em;
@@ -142,46 +142,25 @@ a { color: inherit; text-decoration: none; }
   .hero h1 { max-width: 100%; }
 }
 
-/* ---------- Filter (헤더와 분리된 낱개 칩 / 스크롤해도 고정) ---------- */
+/* ---------- Filter (문서 흐름에 그대로 — 스크롤하면 함께 올라가 사라짐) ---------- */
 .filters {
-  position: fixed;
-  top: 96px;
-  left: 0; right: 0;
-  z-index: 45;
-  /* 그리드와 같은 좌측 기준선에 맞춤 (.wrap의 중앙 정렬 + 거터와 동일한 계산) */
-  padding-left: max(var(--gut), (100% - var(--max)) / 2 + var(--gut));
-  padding-right: var(--gut);
-
-  display: flex; flex-wrap: nowrap; gap: 6px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  pointer-events: none;   /* 투명한 띠가 아래 카드 클릭을 막지 않도록 */
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 0 0 20px;
 }
-.filters > * { pointer-events: auto; }
-.filters::-webkit-scrollbar { display: none; }
 
-/* 칩 하나하나가 개별 유리 조각 — 큰 알약 컨테이너를 쓰지 않음 */
 .filter {
   appearance: none; cursor: pointer; flex: 0 0 auto;
   font: inherit; font-size: 13px; font-weight: 500; line-height: 1;
   padding: 10px 16px; border-radius: 999px; white-space: nowrap;
   color: var(--muted);
-
-  background: color-mix(in srgb, var(--bg) 70%, transparent);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  border: 1px solid color-mix(in srgb, var(--fg) 8%, transparent);
-  box-shadow: 0 2px 8px color-mix(in srgb, var(--fg) 5%, transparent);
+  background: transparent;
+  border: 1px solid var(--line);
   transition: color .18s var(--ease), background-color .18s var(--ease),
               border-color .18s var(--ease);
 }
-@supports not (backdrop-filter: blur(1px)) {
-  .filter { background: var(--bg); }
-}
-.filter:hover { color: var(--fg); border-color: color-mix(in srgb, var(--fg) 20%, transparent); }
+.filter:hover { color: var(--fg); border-color: color-mix(in srgb, var(--fg) 30%, transparent); }
 .filter[aria-pressed="true"] {
-  background: var(--fg); color: var(--bg);
-  border-color: var(--fg);
+  background: var(--fg); color: var(--bg); border-color: var(--fg);
 }
 
 /* ---------- Work grid ---------- */
@@ -190,7 +169,6 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 56px 32px;
-  padding-top: 8px;
   padding-bottom: 80px;
 }
 @media (max-width: 600px) { .grid { grid-template-columns: 1fr; gap: 40px; } }
