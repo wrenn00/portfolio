@@ -20,7 +20,7 @@ const CATEGORIES = [
 const PROJECTS = [
   {
     id: 'project-01',
-    title: '프로젝트 제목을 입력하세요',
+    title: '알바몬 계약 경험 개선 프로젝트',
     summary: '한 줄로 성과나 핵심을 적으면 좋습니다. 예) 결제 이탈률 32% 개선',
     category: 'ai',
     tags: ['AI Product', 'UX/UI', '2026'],
