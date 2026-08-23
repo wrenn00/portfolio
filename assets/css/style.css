@@ -282,6 +282,13 @@ a { color: inherit; text-decoration: none; }
 .case-body > ul { margin: 0 0 18px; padding-left: 20px; }
 .case-body > ul li { margin-bottom: 8px; line-height: 1.75; word-break: keep-all; }
 
+/* 보조 데이터 — 본문보다 낮은 위계 */
+.case-body p.note {
+  margin-top: 24px; padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 13.5px; line-height: 1.65; color: var(--muted);
+}
+
 /* 핵심 문장 강조 */
 .pull {
   margin: 8px 0 0; padding: 24px 28px;
