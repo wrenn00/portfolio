@@ -111,6 +111,16 @@ a { color: inherit; text-decoration: none; }
   .nav a { padding: 7px 14px; }
 }
 
+/* ---------- Page title ---------- */
+.page-title {
+  margin: 0;
+  padding-top: 64px;
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+
 /* ---------- Hero (짧게 — 작업물이 바로 보이도록) ---------- */
 /* 폭을 아래 작업물 그리드의 한 컬럼에 맞춤 */
 .hero { padding-top: 40px; padding-bottom: 28px; }
@@ -132,7 +142,7 @@ a { color: inherit; text-decoration: none; }
 /* ---------- Filter ---------- */
 .filters {
   display: flex; flex-wrap: wrap; gap: 8px;
-  padding: 4px 0 20px;
+  padding: 20px 0;
   position: sticky; top: 96px; z-index: 40;   /* 떠 있는 헤더(14 + 58) 아래에 걸리도록 */
   background: var(--bg);
 }
