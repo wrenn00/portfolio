@@ -114,7 +114,7 @@ a { color: inherit; text-decoration: none; }
 /* ---------- Page title ---------- */
 .page-title {
   margin: 0;
-  padding-top: 64px;
+  padding-top: 84px;      /* 고정된 필터바(92~139) 아래로 내려오도록 */
   font-size: clamp(24px, 2.6vw, 34px);
   font-weight: 600;
   letter-spacing: -.02em;
@@ -139,22 +139,44 @@ a { color: inherit; text-decoration: none; }
   .hero h1 { max-width: 100%; }
 }
 
-/* ---------- Filter ---------- */
+/* ---------- Filter (헤더 아래 고정되는 글래스 알약) ---------- */
 .filters {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  padding: 20px 0;
-  position: sticky; top: 96px; z-index: 40;   /* 떠 있는 헤더(14 + 58) 아래에 걸리도록 */
-  background: var(--bg);
+  position: fixed;
+  top: 92px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+
+  display: flex; flex-wrap: nowrap; gap: 4px;
+  padding: 7px;
+  border-radius: 999px;
+  max-width: calc(100vw - var(--gut) * 2);
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  background: color-mix(in srgb, var(--bg) 62%, transparent);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid color-mix(in srgb, var(--fg) 8%, transparent);
+  box-shadow:
+    0 1px 1px color-mix(in srgb, var(--fg) 4%, transparent),
+    0 8px 24px color-mix(in srgb, var(--fg) 8%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 60%, transparent);
 }
+.filters::-webkit-scrollbar { display: none; }
+@supports not (backdrop-filter: blur(1px)) {
+  .filters { background: var(--bg); }
+}
+
 .filter {
-  appearance: none; cursor: pointer;
-  border: 1px solid var(--line); background: transparent; color: var(--muted);
-  font: inherit; font-size: 13px; line-height: 1;
-  padding: 9px 14px; border-radius: 999px;
-  transition: all .18s var(--ease);
+  appearance: none; cursor: pointer; flex: 0 0 auto;
+  border: 0; background: transparent; color: var(--muted);
+  font: inherit; font-size: 13px; font-weight: 500; line-height: 1;
+  padding: 9px 15px; border-radius: 999px; white-space: nowrap;
+  transition: color .18s var(--ease), background-color .18s var(--ease);
 }
-.filter:hover { color: var(--fg); border-color: var(--fg); }
-.filter[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+.filter:hover { color: var(--fg); background: color-mix(in srgb, var(--fg) 6%, transparent); }
+.filter[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
 
 /* ---------- Work grid ---------- */
 /* 모든 프로젝트를 동일한 위계로, 한 줄에 2개씩 */
@@ -162,6 +184,7 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 56px 32px;
+  padding-top: 24px;
   padding-bottom: 80px;
 }
 @media (max-width: 600px) { .grid { grid-template-columns: 1fr; gap: 40px; } }
