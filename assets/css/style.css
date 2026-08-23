@@ -48,22 +48,68 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
-/* ---------- Header ---------- */
+/* ---------- Header (floating liquid glass) ---------- */
 .site-header {
-  position: sticky; top: 0; z-index: 50;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 14px;
+  z-index: 50;
+  padding-top: 14px;
+  background: transparent;
 }
-.site-header .wrap {
-  display: flex; align-items: center; justify-content: space-between;
-  height: 60px;
+.site-header .wrap { display: flex; justify-content: center; }
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
+  padding: 9px 10px 9px 22px;
+  border-radius: 999px;
+
+  /* liquid glass — 반투명 + 배경 블러 + 부드러운 그림자 */
+  background: color-mix(in srgb, var(--bg) 62%, transparent);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid color-mix(in srgb, var(--fg) 8%, transparent);
+  box-shadow:
+    0 1px 1px color-mix(in srgb, var(--fg) 4%, transparent),
+    0 8px 24px color-mix(in srgb, var(--fg) 8%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 60%, transparent);
 }
-.logo { font-weight: 600; letter-spacing: -.01em; font-size: 15px; }
-.logo span { color: var(--muted); font-weight: 400; }
-.nav { display: flex; gap: 22px; font-size: 14px; }
-.nav a { color: var(--muted); transition: color .2s var(--ease); }
-.nav a:hover, .nav a[aria-current="page"] { color: var(--fg); }
+/* backdrop-filter 미지원 브라우저에서는 불투명하게 */
+@supports not (backdrop-filter: blur(1px)) {
+  .header-bar { background: var(--bg); }
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .header-bar {
+    box-shadow:
+      0 8px 24px rgba(0,0,0,.5),
+      inset 0 1px 0 color-mix(in srgb, #fff 10%, transparent);
+  }
+}
+
+.logo { display: flex; flex-direction: column; line-height: 1.25; }
+.logo strong { font-size: 15px; font-weight: 700; letter-spacing: -.01em; }
+.logo span { font-size: 11.5px; font-weight: 400; color: var(--muted); }
+
+/* Work / About 두 개의 탭 */
+.nav { display: flex; align-items: center; gap: 4px; font-size: 14px; }
+.nav a {
+  padding: 8px 18px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 500;
+  transition: color .2s var(--ease), background-color .2s var(--ease);
+}
+.nav a:hover { color: var(--fg); background: color-mix(in srgb, var(--fg) 6%, transparent); }
+.nav a[aria-current="page"] {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+@media (max-width: 600px) {
+  .header-bar { gap: 16px; padding: 8px 8px 8px 16px; width: 100%; }
+  .nav a { padding: 7px 14px; }
+}
 
 /* ---------- Hero (짧게 — 작업물이 바로 보이도록) ---------- */
 /* 폭을 아래 작업물 그리드의 한 컬럼에 맞춤 */
@@ -87,7 +133,7 @@ a { color: inherit; text-decoration: none; }
 .filters {
   display: flex; flex-wrap: wrap; gap: 8px;
   padding: 4px 0 20px;
-  position: sticky; top: 60px; z-index: 40;
+  position: sticky; top: 96px; z-index: 40;   /* 떠 있는 헤더(14 + 58) 아래에 걸리도록 */
   background: var(--bg);
 }
 .filter {
