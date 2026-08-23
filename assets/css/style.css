@@ -129,6 +129,7 @@ a { color: inherit; text-decoration: none; }
 .hero { padding-top: 84px; padding-bottom: 28px; }
 .hero h1 {
   margin: 0;
+  text-wrap: pretty;
   font-size: clamp(20px, 2.4vw, 30px);
   font-weight: 500;
   line-height: 1.4;
@@ -222,13 +223,13 @@ a { color: inherit; text-decoration: none; }
 .case-hero h1 {
   margin: 0 0 24px;
   font-size: clamp(26px, 3.1vw, 40px);
-  font-weight: 700; letter-spacing: -.035em; line-height: 1.35;
-  word-break: keep-all; max-width: 22ch;
+  font-weight: 700; letter-spacing: -.035em; line-height: 1.4;
+  word-break: keep-all; text-wrap: pretty; max-width: none;
 }
 .case-hero .lede {
   margin: 0; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.95;
   letter-spacing: -.008em; color: var(--muted);
-  max-width: 52em; word-break: keep-all;
+  max-width: none; word-break: keep-all; text-wrap: pretty;
 }
 .case-sub {
   margin: 28px 0 0; padding-top: 20px;
@@ -263,8 +264,8 @@ a { color: inherit; text-decoration: none; }
 .case-section h2 {
   margin: 0 0 30px;
   font-size: clamp(19px, 1.75vw, 25px);
-  font-weight: 700; letter-spacing: -.028em; line-height: 1.45;
-  word-break: keep-all; max-width: 34ch;
+  font-weight: 700; letter-spacing: -.028em; line-height: 1.55;
+  word-break: keep-all; text-wrap: pretty; max-width: none;
 }
 .case-body { max-width: 62em; }
 .case-body p {
@@ -328,6 +329,11 @@ a { color: inherit; text-decoration: none; }
 .figure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0 0; }
 .figure-grid .figure { margin: 0; }
 @media (max-width: 700px) { .figure-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 640px) {
+  .case-hero h1 br, .case-hero .lede br, .case-section h2 br { display: none; }
+  .case-section h2, .case-hero h1, .case-hero .lede { text-wrap: balance; }
+}
 
 .case-nav {
   display: flex; justify-content: space-between; gap: 16px;
