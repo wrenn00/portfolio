@@ -11,8 +11,8 @@
   --accent:    #111111;
   --surface:   #f4f4f4;
 
-  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-               "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
+               "Apple SD Gothic Neo", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
 
   --max:       1440px;
   --gut:       24px;
@@ -39,6 +39,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
+button, input, select, textarea { font-family: inherit; }
 a { color: inherit; text-decoration: none; }
 
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gut); }
