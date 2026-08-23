@@ -23,13 +23,11 @@
       ? `<img src="${p.thumb}" alt="${p.title} 썸네일" loading="lazy">`
       : `<div class="ph">IMAGE</div>`;
     const wip   = p.url ? '' : `<span class="badge">준비중</span>`;
-    const tags  = (p.tags || []).map(t => `<li>${t}</li>`).join('');
     const inner = `
       <div class="card-thumb">${thumb}${wip}</div>
       <div class="card-body">
         <h3 class="card-title">${p.title}</h3>
         <p class="card-summary">${p.summary || ''}</p>
-        <ul class="card-tags">${tags}</ul>
       </div>`;
     const cls = 'card';
     return p.url
