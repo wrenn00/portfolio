@@ -67,7 +67,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- Hero (짧게 — 작업물이 바로 보이도록) ---------- */
 /* 폭을 아래 작업물 그리드의 한 컬럼에 맞춤 */
-.hero { padding: 40px 0 28px; }
+.hero { padding-top: 40px; padding-bottom: 28px; }
 .hero h1 {
   margin: 0;
   font-size: clamp(20px, 2.4vw, 30px);
