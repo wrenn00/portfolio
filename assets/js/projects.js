@@ -9,12 +9,12 @@
 ------------------------------------------------------------------- */
 
 const CATEGORIES = [
-  { id: 'all',          label: 'All' },
-  { id: 'ai',           label: 'AI Product' },
-  { id: 'digital',      label: 'Digital Product' },
-  { id: 'brand',        label: 'Brand Experience' },
-  { id: 'experimental', label: 'Experimental' },
-  { id: 'graduation',   label: 'Graduation' },
+  { id: 'all',          label: '전체' },
+  { id: 'ai',           label: 'AI 프로덕트' },
+  { id: 'digital',      label: '디지털 프로덕트' },
+  { id: 'brand',        label: '브랜드 경험' },
+  { id: 'experimental', label: '실험' },
+  { id: 'graduation',   label: '졸업작품' },
 ];
 
 const PROJECTS = [
