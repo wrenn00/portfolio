@@ -77,20 +77,48 @@
   <div class="about-grid">
     <aside>
       <div class="avatar" role="img" aria-label="정다은 프로필">
-        <svg viewBox="75 96 150 200">
+        <svg viewBox="34 68 236 236">
+          <defs>
+            <clipPath id="eyeL"><ellipse cx="98" cy="170" rx="40" ry="51"/></clipPath>
+            <clipPath id="eyeR"><ellipse cx="212" cy="174" rx="38" ry="53"/></clipPath>
+          </defs>
+
           <g class="avatar__drift">
-            <g class="avatar__gaze">
-              <!-- 눈썹 -->
-              <path class="avatar__brow" d="M96 146 C106 136 128 135 140 143"/>
-              <path class="avatar__brow" d="M160 143 C172 135 194 136 204 146"/>
-              <!-- 눈 -->
-              <g class="avatar__eyes">
-                <ellipse cx="118" cy="184" rx="9" ry="12.5"/>
-                <ellipse cx="182" cy="184" rx="9" ry="12.5"/>
-              </g>
+            <!-- 눈썹 — 둘 다 같은 방향으로 기울여 갸웃한 인상 -->
+            <g class="avatar__brows">
+              <path d="M44 88 L140 112"/>
+              <path d="M172 86 L264 110"/>
             </g>
-            <!-- 입 -->
-            <path class="avatar__mouth" d="M131 236 C141 248 159 248 169 236"/>
+
+            <!-- 왼쪽 눈 (살짝 기울임) -->
+            <g transform="rotate(-7 98 170)">
+            <g clip-path="url(#eyeL)">
+              <g class="avatar__gaze">
+                <circle class="avatar__pupil" cx="98" cy="182" r="19"/>
+                <circle class="avatar__spark" cx="107" cy="174" r="3.3"/>
+              </g>
+              <path class="avatar__lid" d="M50 104 L148 104 L148 166 C124 146 74 146 50 166 Z"/>
+            </g>
+            <ellipse class="avatar__eye" cx="98" cy="170" rx="40" ry="51"/>
+            </g>
+
+            <!-- 오른쪽 눈 (반대로 살짝 기울임) -->
+            <g transform="rotate(5 212 174)">
+            <g clip-path="url(#eyeR)">
+              <g class="avatar__gaze">
+                <circle class="avatar__pupil" cx="212" cy="186" r="18"/>
+                <circle class="avatar__spark" cx="221" cy="178" r="3.1"/>
+              </g>
+              <path class="avatar__lid" d="M168 108 L258 108 L258 170 C236 150 190 150 168 170 Z"/>
+            </g>
+            <ellipse class="avatar__eye" cx="212" cy="174" rx="38" ry="53"/>
+            </g>
+
+            <!-- 코 -->
+            <path class="avatar__nose" d="M157 198 L150 230 C149 237 158 240 165 235"/>
+
+            <!-- 입 — 한쪽만 올라간 비대칭 -->
+            <path class="avatar__mouth" d="M88 252 C110 282 152 288 178 266"/>
           </g>
         </svg>
       </div>
