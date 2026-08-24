@@ -124,6 +124,23 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.2;
 }
 
+/* ---------- Morphing logo (클로드 ↔ 코덱스) ---------- */
+/* 형태 변형·눌림·기호 표시는 모두 SVG 내부 SMIL이 한 시계로 처리 */
+.morph-logo {
+  width: clamp(56px, 6vw, 76px);
+  aspect-ratio: 1;
+  margin: 0 0 22px -4px;   /* 스파이크 끝을 글자 기준선에 맞추는 시각 보정 */
+  color: var(--fg);
+}
+.morph-logo svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.morph-logo__marks { stroke: var(--bg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .morph-logo animate,
+  .morph-logo animateTransform { display: none; }
+  .morph-logo__marks { opacity: 0; }
+}
+
 /* ---------- Hero (About 페이지) ---------- */
 .hero { padding-top: 84px; padding-bottom: 28px; }
 .hero h1 {
