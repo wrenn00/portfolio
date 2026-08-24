@@ -377,76 +377,8 @@ a { color: inherit; text-decoration: none; }
 .case-nav a { color: var(--muted); }
 .case-nav a:hover { color: var(--fg); }
 
-/* ---------- Avatar (표정) ---------- */
-.avatar { width: 100%; aspect-ratio: 1; }
-.avatar svg { width: 100%; height: 100%; display: block; overflow: visible; }
-
-.avatar__eye  { fill: none; stroke: var(--fg); stroke-width: 13; }
-.avatar__lid  { fill: var(--fg); }
-.avatar__pupil { fill: var(--fg); }
-.avatar__spark { fill: var(--bg); }
-.avatar__brows path {
-  fill: none; stroke: var(--fg); stroke-width: 18; stroke-linecap: butt;
-}
-.avatar__nose, .avatar__mouth {
-  fill: none; stroke: var(--fg); stroke-linecap: round; stroke-linejoin: round;
-}
-.avatar__nose  { stroke-width: 12; }
-.avatar__mouth { stroke-width: 15; }
-
-/* 호흡 */
-.avatar__drift {
-  transform-origin: 152px 180px;
-  animation: avatar-drift 7.6s cubic-bezier(.45, 0, .55, 1) infinite;
-}
-@keyframes avatar-drift {
-  0%, 100% { transform: translateY(0) rotate(-1deg); }
-  50%      { transform: translateY(-7px) rotate(1deg); }
-}
-
-/* 눈꺼풀이 내려와 감기는 깜빡임 */
-.avatar__lid { animation: avatar-blink 5.4s infinite; }
-@keyframes avatar-blink {
-  0%, 92%, 100% { transform: translateY(0); }
-  95%           { transform: translateY(66px); }
-  97.5%         { transform: translateY(0); }
-}
-
-/* 동공이 옮겨 가는 시선 */
-.avatar__gaze { animation: avatar-gaze 11s cubic-bezier(.5, 0, .2, 1) infinite; }
-@keyframes avatar-gaze {
-  0%, 24%   { transform: translate(0, 0); }
-  32%, 54%  { transform: translate(-13px, -4px); }
-  62%, 100% { transform: translate(0, 0); }
-}
-
-/* 시선을 옮길 때 눈썹도 아주 살짝 들림 */
-.avatar__brows { animation: avatar-brows 11s cubic-bezier(.5, 0, .2, 1) infinite; }
-@keyframes avatar-brows {
-  0%, 24%   { transform: translateY(0); }
-  32%, 54%  { transform: translateY(-6px); }
-  62%, 100% { transform: translateY(0); }
-}
-
-/* 입꼬리 */
-.avatar__mouth {
-  transform-origin: 133px 266px;
-  animation: avatar-mouth 7.6s cubic-bezier(.45, 0, .55, 1) infinite;
-}
-@keyframes avatar-mouth {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  50%      { transform: scale(1.05, .95) rotate(-2deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .avatar__drift, .avatar__lid, .avatar__gaze,
-  .avatar__brows, .avatar__mouth { animation: none; }
-}
-
 /* ---------- About ---------- */
-.about-grid { display: grid; grid-template-columns: 300px minmax(0, 712px); gap: 64px; padding: 56px 0 96px; }
-.about-grid > div:last-child { min-width: 0; }
-@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+.about-grid { max-width: 712px; padding: 56px 0 96px; }
 .about-grid h2 { font-size: 14px; font-weight: 600; letter-spacing: -.005em; color: var(--muted); margin: 0 0 16px; }
 .about-block { margin-bottom: 48px; }
 .about-block p {
