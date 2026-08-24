@@ -377,6 +377,72 @@ a { color: inherit; text-decoration: none; }
 .case-nav a { color: var(--muted); }
 .case-nav a:hover { color: var(--fg); }
 
+/* ---------- Avatar (앞머리 + 중단발 프로필) ---------- */
+.avatar { width: 100%; aspect-ratio: 3 / 4; }
+.avatar svg { width: 100%; height: 100%; display: block; }
+
+.avatar__body,
+.avatar__hair-back path,
+.avatar__bangs,
+.avatar__eyes ellipse { fill: var(--fg); }
+
+.avatar__face { fill: var(--bg); }
+
+.avatar__neck {
+  fill: var(--bg); stroke: var(--fg); stroke-width: 4;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.avatar__brows path,
+.avatar__line {
+  fill: none; stroke: var(--fg); stroke-width: 4;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* 머리를 아주 조금 기울였다 되돌리는 호흡 */
+.avatar__sway {
+  transform-origin: 150px 330px;
+  animation: avatar-sway 7s cubic-bezier(.45, 0, .55, 1) infinite;
+}
+@keyframes avatar-sway {
+  0%, 100% { transform: rotate(-1.4deg) translateY(0); }
+  50%      { transform: rotate(1.4deg) translateY(-3px); }
+}
+
+/* 옆머리는 반 박자 늦게 따라오도록 */
+.avatar__hair-back {
+  transform-origin: 150px 90px;
+  animation: avatar-hair 7s cubic-bezier(.45, 0, .55, 1) infinite;
+}
+@keyframes avatar-hair {
+  0%, 100% { transform: rotate(.8deg); }
+  50%      { transform: rotate(-.8deg); }
+}
+
+/* 깜빡임 */
+.avatar__eyes {
+  transform-origin: 150px 187px;
+  animation: avatar-blink 5.4s infinite;
+}
+@keyframes avatar-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95%           { transform: scaleY(.08); }
+  97%           { transform: scaleY(1); }
+}
+
+/* 말할 듯 말 듯 입꼬리 */
+.avatar__mouth {
+  transform-origin: 150px 228px;
+  animation: avatar-mouth 7s cubic-bezier(.45, 0, .55, 1) infinite;
+}
+@keyframes avatar-mouth {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08, .92); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar__sway, .avatar__hair-back, .avatar__eyes, .avatar__mouth { animation: none; }
+}
+
 /* ---------- About ---------- */
 .about-grid { display: grid; grid-template-columns: 300px minmax(0, 712px); gap: 64px; padding: 56px 0 96px; }
 .about-grid > div:last-child { min-width: 0; }

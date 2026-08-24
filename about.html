@@ -76,7 +76,48 @@
 
   <div class="about-grid">
     <aside>
-      <img src="assets/img/portrait.jpg" alt="프로필 사진" style="border-radius:4px;background:var(--surface);aspect-ratio:3/4;object-fit:cover;width:100%">
+      <div class="avatar" role="img" aria-label="정다은 프로필 일러스트">
+        <svg viewBox="0 0 300 400">
+          <g class="avatar__sway">
+            <!-- 목 (어깨보다 먼저 그려 어깨에 가려지도록) -->
+            <path class="avatar__neck" d="M131 236 L131 300 C131 313 169 313 169 300 L169 236"/>
+            <!-- 어깨 -->
+            <path class="avatar__body" d="M38 400 C38 338 94 312 150 312 C206 312 262 338 262 400 Z"/>
+
+            <!-- 뒷머리 — 중단발 -->
+            <g class="avatar__hair-back">
+              <path d="M150 76 C101 76 72 111 72 178 C72 223 76 264 82 295
+                       C84 304 100 304 100 295 C95 257 97 221 97 190
+                       L203 190 C203 221 205 257 200 295 C200 304 216 304 218 295
+                       C224 264 228 223 228 178 C228 111 199 76 150 76 Z"/>
+            </g>
+
+            <!-- 얼굴 -->
+            <ellipse class="avatar__face" cx="150" cy="176" rx="56" ry="72"/>
+
+            <!-- 앞머리 -->
+            <path class="avatar__bangs"
+                  d="M94 160 C94 112 119 86 150 86 C181 86 206 112 206 160
+                     C206 160 191 138 160 134 C129 130 105 143 94 160 Z"/>
+
+            <!-- 눈썹 -->
+            <g class="avatar__brows">
+              <path d="M115 166 C122 160 134 160 141 165"/>
+              <path d="M159 165 C166 160 178 160 185 166"/>
+            </g>
+
+            <!-- 눈 (깜빡임) -->
+            <g class="avatar__eyes">
+              <ellipse cx="128" cy="187" rx="5.5" ry="7.5"/>
+              <ellipse cx="172" cy="187" rx="5.5" ry="7.5"/>
+            </g>
+
+            <!-- 코 · 입 -->
+            <path class="avatar__line" d="M150 196 L150 209 C150 213 154 214 157 212"/>
+            <path class="avatar__line avatar__mouth" d="M138 226 C144 233 156 233 162 226"/>
+          </g>
+        </svg>
+      </div>
     </aside>
 
     <div>
