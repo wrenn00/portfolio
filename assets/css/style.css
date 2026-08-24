@@ -3,6 +3,8 @@
    색/타이포는 :root 토큰만 바꾸면 사이트 전체가 바뀝니다.
    ============================================================ */
 
+@view-transition { navigation: auto; }
+
 :root {
   --bg:        #ffffff;
   --fg:        #111111;
@@ -93,19 +95,31 @@ a { color: inherit; text-decoration: none; }
 .logo strong { font-size: 15px; font-weight: 700; letter-spacing: -.01em; }
 .logo span { font-size: 11.5px; font-weight: 400; color: var(--muted); }
 
-/* Work / About 두 개의 탭 */
-.nav { display: flex; align-items: center; gap: 4px; font-size: 14px; }
+/* Work / About 두 개의 탭 — 알약 하나가 탭 사이를 옮겨 다님 */
+.nav { position: relative; display: flex; align-items: center; gap: 4px; font-size: 14px; }
 .nav a {
+  position: relative; z-index: 1;
   padding: 8px 18px;
   border-radius: 999px;
-  color: var(--muted);
+  color: var(--fg);
   font-weight: 500;
-  transition: color .2s var(--ease), background-color .2s var(--ease);
+  transition: color .22s var(--ease);
 }
-.nav a:hover { color: var(--fg); background: color-mix(in srgb, var(--fg) 6%, transparent); }
-.nav a[aria-current="page"] {
+.nav a.is-lit { color: var(--bg); }
+
+.nav-pill {
+  position: absolute; inset-block: 0; left: 0; z-index: 0;
+  border-radius: 999px;
   background: var(--fg);
-  color: var(--bg);
+  transition: transform .34s cubic-bezier(.32, .72, 0, 1),
+              width     .34s cubic-bezier(.32, .72, 0, 1);
+}
+/* JS가 꺼져 있으면 현재 탭에 정적인 알약을 그대로 표시 */
+.nav a[aria-current="page"]:not(.is-lit) { background: var(--fg); color: var(--bg); }
+
+/* 페이지를 넘어갈 때도 알약이 이어지도록 (지원 브라우저) */
+@media (prefers-reduced-motion: no-preference) {
+  .nav-pill { view-transition-name: nav-pill; }
 }
 
 @media (max-width: 600px) {
