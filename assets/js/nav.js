@@ -10,6 +10,7 @@
   pill.className = 'nav-pill';
   pill.setAttribute('aria-hidden', 'true');
   nav.prepend(pill);
+  nav.classList.add('has-pill');   // 정적 폴백 알약을 끔
 
   let settled = false;
 

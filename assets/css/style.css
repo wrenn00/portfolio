@@ -114,8 +114,8 @@ a { color: inherit; text-decoration: none; }
   transition: transform .34s cubic-bezier(.32, .72, 0, 1),
               width     .34s cubic-bezier(.32, .72, 0, 1);
 }
-/* JS가 꺼져 있으면 현재 탭에 정적인 알약을 그대로 표시 */
-.nav a[aria-current="page"]:not(.is-lit) { background: var(--fg); color: var(--bg); }
+/* JS가 꺼져 있을 때만 정적 알약 — 호버 중 알약이 둘로 보이지 않도록 */
+.nav:not(.has-pill) a[aria-current="page"] { background: var(--fg); color: var(--bg); }
 
 /* 페이지를 넘어갈 때도 알약이 이어지도록 (지원 브라우저) */
 @media (prefers-reduced-motion: no-preference) {
