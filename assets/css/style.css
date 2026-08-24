@@ -184,13 +184,12 @@ a { color: inherit; text-decoration: none; }
   appearance: none; cursor: pointer; flex: 0 0 auto;
   font: inherit; font-size: 13px; font-weight: 500; line-height: 1;
   padding: 10px 16px; border-radius: 999px; white-space: nowrap;
-  color: var(--muted);
+  color: var(--fg);
   background: transparent;
-  border: 1px solid var(--line);
-  transition: color .18s var(--ease), background-color .18s var(--ease),
-              border-color .18s var(--ease);
+  border: 1px solid var(--fg);
+  transition: color .18s var(--ease), background-color .18s var(--ease);
 }
-.filter:hover { color: var(--fg); border-color: color-mix(in srgb, var(--fg) 30%, transparent); }
+.filter:hover { background: color-mix(in srgb, var(--fg) 8%, transparent); }
 .filter[aria-pressed="true"] {
   background: var(--fg); color: var(--bg); border-color: var(--fg);
 }
